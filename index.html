@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Секундомір</title>
+    <title>Секундомір / Таймер</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">
+    <!-- Вкладки -->
+    <div class="tabs">
+      <button id="showStopwatch" class="tab-btn active">Секундомір</button>
+      <button id="showCountdown" class="tab-btn">Таймер</button>
+    </div>
+
+    <!-- Секундомір -->
+    <div class="container active" id="stopwatchContainer">
       <h1>Секундомір</h1>
       <div id="display">00:00:00</div>
       <div class="buttons">
@@ -19,6 +26,35 @@
       <ul id="laps"></ul>
     </div>
 
+    <!-- Таймер -->
+    <div class="container" id="countdownContainer">
+      <h1>Таймер</h1>
+      <div id="countdownDisplay">00:00:00</div>
+      <div id="inputs">
+        <input type="number" id="inputHours" placeholder="Години" min="0" />
+        <input
+          type="number"
+          id="inputMinutes"
+          placeholder="Хвилини"
+          min="0"
+          max="60"
+        />
+        <input
+          type="number"
+          id="inputSeconds"
+          placeholder="Секунди"
+          min="0"
+          max="59"
+        />
+      </div>
+      <div class="buttons">
+        <button id="startCountdownBtn">Старт</button>
+        <button id="stopCountdownBtn">Стоп</button>
+        <button id="resetCountdownBtn">Скинути</button>
+      </div>
+    </div>
+
+    <script src="js/tabs.js"></script>
     <script src="js/stopwatch.js"></script>
     <script src="js/countdown.js"></script>
   </body>

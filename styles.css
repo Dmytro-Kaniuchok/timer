@@ -1,80 +1,146 @@
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 100vh;
   background: #f2f4f7;
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  padding: 32px;
 }
 
+/* --- Контейнери --- */
 .container {
-  background: #fff;
+  display: none;
+  background: linear-gradient(145deg, #ffffff, #e0f7fa);
   padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.08);
   text-align: center;
   width: 500px;
+  margin: 60px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#display {
-  font-size: 48px;
-  margin: 20px 0;
-  font-weight: bold;
+.container.active {
+  display: block;
+  transform: scale(1);
 }
 
-#buttons {
+/* --- Вкладки --- */
+.tabs {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-button {
-  width: 100px;
-  text-align: center;
-  margin: 0 8px 0 0;
-  padding: 10px 22px;
-  font-size: 16px;
+.tab-btn {
+  padding: 10px 24px;
   border: none;
   border-radius: 16px;
+  background: transparent;
+  color: #101828;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
-  transition: transform 0.1s ease, opacity 0.2s ease;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 
-button:last-child {
-  margin-right: 0;
+.tab-btn:hover {
+  background: #00796b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.tab-btn.active {
+  background-color: #b2dfdb;
+  color: #00796b;
+  box-shadow: 0 4px 12px rgba(0, 121, 107, 0.5);
+}
+
+/* --- Дисплеї часу --- */
+#display,
+#countdownDisplay {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 20px 0;
+  color: #fff;
+  background: linear-gradient(135deg, #26a69a, #00796b);
+  padding: 16px 32px;
+  border-radius: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), inset 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  letter-spacing: 2px;
+}
+
+/* --- Інпути таймера --- */
+#inputs input {
+  width: 100px;
+  margin: 0 8px 12px 0;
+  padding: 10px;
+  border: 1px solid #b2dfdb;
+  border-radius: 12px;
+  font-size: 16px;
+  text-align: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#inputs input:focus {
+  outline: none;
+  border-color: #00796b;
+  box-shadow: 0 0 8px rgba(0, 121, 107, 0.3);
+}
+
+/* --- Кнопки --- */
+button {
+  padding: 10px 22px;
+  font-size: 16px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.1s ease, opacity 0.2s ease, box-shadow 0.3s;
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(0.97);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
   transform: scale(0.95);
 }
 
+/* --- Кольори кнопок секундоміра --- */
 #startBtn {
-  background: linear-gradient(135deg, #66bb6a, #43a047);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  background: linear-gradient(135deg, #26a69a, #00796b);
 }
-
 #stopBtn {
-  background: linear-gradient(135deg, #ef5350, #e53935);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  background: linear-gradient(135deg, #ef5350, #c62828);
 }
-
 #resetBtn {
-  background: linear-gradient(135deg, #42a5f5, #1e88e5);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  background: linear-gradient(135deg, #42a5f5, #1565c0);
 }
-
 #lapBtn {
   background: linear-gradient(135deg, #ffa726, #fb8c00);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #fff;
 }
 
+/* --- Кольори кнопок таймера --- */
+#startCountdownBtn {
+  background: linear-gradient(135deg, #26a69a, #00796b);
+}
+#stopCountdownBtn {
+  background: linear-gradient(135deg, #ef5350, #c62828);
+}
+#resetCountdownBtn {
+  background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+
+/* --- Списки кіл (секундомір) --- */
 #laps {
   display: flex;
   flex-wrap: wrap;
