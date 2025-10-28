@@ -9,14 +9,14 @@
   <body>
     <!-- Вкладки -->
     <div class="tabs">
-      <button id="showStopwatch" class="tab-btn active">Секундомір</button>
-      <button id="showCountdown" class="tab-btn">Таймер</button>
+      <button id="showCountdown" class="tab-btn active">Таймер</button>
+      <button id="showStopwatch" class="tab-btn">Секундомір</button>
     </div>
 
     <!-- Секундомір -->
-    <div class="container active" id="stopwatchContainer">
+    <div class="container" id="stopwatchContainer">
       <h1>Секундомір</h1>
-      <div id="display">00:00</div>
+      <div id="display">00:00:00</div>
       <div class="buttons">
         <button id="startBtn">Старт</button>
         <button id="stopBtn">Стоп</button>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Таймер -->
-    <div class="container" id="countdownContainer">
+    <div class="container active" id="countdownContainer">
       <div id="countdownMessage">Час вийшов! ⏰</div>
       <h1>Таймер</h1>
       <div id="countdownDisplay">00:00:00</div>
