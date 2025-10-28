@@ -16,7 +16,7 @@
     <!-- Секундомір -->
     <div class="container active" id="stopwatchContainer">
       <h1>Секундомір</h1>
-      <div id="display">00:00:00</div>
+      <div id="display">00:00</div>
       <div class="buttons">
         <button id="startBtn">Старт</button>
         <button id="stopBtn">Стоп</button>
@@ -28,25 +28,20 @@
 
     <!-- Таймер -->
     <div class="container" id="countdownContainer">
+      <div id="countdownMessage">Час вийшов! ⏰</div>
       <h1>Таймер</h1>
       <div id="countdownDisplay">00:00:00</div>
-      <div id="inputs">
-        <input type="number" id="inputHours" placeholder="Години" min="0" />
-        <input
-          type="number"
-          id="inputMinutes"
-          placeholder="Хвилини"
-          min="0"
-          max="60"
-        />
-        <input
-          type="number"
-          id="inputSeconds"
-          placeholder="Секунди"
-          min="0"
-          max="59"
-        />
+      <div class="time-picker">
+        <label>Години: <span id="hoursLabel">0</span></label>
+        <input type="range" id="inputHours" min="0" max="12" value="0" />
+
+        <label>Хвилини: <span id="minutesLabel">0</span></label>
+        <input type="range" id="inputMinutes" min="0" max="59" value="0" />
+
+        <label>Секунди: <span id="secondsLabel">0</span></label>
+        <input type="range" id="inputSeconds" min="0" max="59" value="0" />
       </div>
+
       <div class="buttons">
         <button id="startCountdownBtn">Старт</button>
         <button id="stopCountdownBtn">Стоп</button>
