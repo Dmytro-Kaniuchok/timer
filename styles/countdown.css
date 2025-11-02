@@ -1,0 +1,135 @@
+.circle-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+}
+
+.progress-circle {
+  transform: rotate(-90deg);
+}
+
+.progress-circle circle {
+  fill: none;
+  stroke-width: 12;
+  stroke: #e0e0e0;
+  r: 90;
+  cx: 100;
+  cy: 100;
+}
+
+.progress-circle circle.progress {
+  stroke: #26a69a;
+  stroke-dasharray: 565.48;
+  stroke-dashoffset: 565.48;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+/* Клас для останніх 5 секунд */
+.warning {
+  stroke: #ef5350 !important;
+  color: #ef5350 !important;
+}
+
+#countdownDisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  font-weight: 800;
+  color: #00796b;
+}
+
+/* Слайдери */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #26a69a 0%, #26a69a 0%, #e0e0e0 0%);
+  outline: none;
+  transition: background 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #ff7043;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: #ff7043;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Time Picker (Sliders) */
+.time-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.time-picker label {
+  font-weight: 600;
+  color: #101828;
+  margin-bottom: 4px;
+}
+
+/* Buttons */
+#startCountdownBtn {
+  background: linear-gradient(135deg, #26a69a, #00796b);
+}
+#stopCountdownBtn {
+  background: linear-gradient(135deg, #ef5350, #c62828);
+}
+#resetCountdownBtn {
+  background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+
+#countdownMessage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff512f, #dd2476, #2196f3);
+  background-size: 300% 300%;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#countdownMessage.show {
+  opacity: 1;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

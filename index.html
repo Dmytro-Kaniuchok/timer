@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Секундомір / Таймер</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/countdown.css" />
+    <link rel="stylesheet" href="styles/stopwatch.css" />
   </head>
   <body>
     <!-- Вкладки -->
@@ -30,7 +32,17 @@
     <div class="container active" id="countdownContainer">
       <div id="countdownMessage">Час вийшов! ⏰</div>
       <h1>Таймер</h1>
-      <div id="countdownDisplay">00:00:00</div>
+
+      <!-- Круговий прогрес -->
+      <div class="circle-container">
+        <svg class="progress-circle" width="200" height="200">
+          <circle cx="100" cy="100" r="90" />
+          <circle cx="100" cy="100" r="90" class="progress" />
+        </svg>
+        <div id="countdownDisplay">00:00:00</div>
+      </div>
+
+      <!-- Слайдери -->
       <div class="time-picker">
         <label>Години: <span id="hoursLabel">0</span></label>
         <input type="range" id="inputHours" min="0" max="12" value="0" />
